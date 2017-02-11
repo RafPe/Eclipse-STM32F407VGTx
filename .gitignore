@@ -1,7 +1,12 @@
 # ignore output folders
 
+main2.c
+
 Debug/*
 Release/*
+
+# ignore DSfiles
+.DS_Store
 
 
 # Created by https://www.gitignore.io/api/c
@@ -113,3 +118,4 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+/Debug/

@@ -9,7 +9,7 @@
   *          This file contains:
   *           - Data structures and the address mapping for all peripherals
   *           - peripherals registers declarations and bits definition
-  *           - Macros to access peripheral’s registers hardware
+  *           - Macros to access peripheralï¿½s registers hardware
   *
   ******************************************************************************
   * @attention
@@ -69,6 +69,8 @@
 #define __NVIC_PRIO_BITS          4U       /*!< STM32F4XX uses 4 Bits for the Priority Levels */
 #define __Vendor_SysTickConfig    0U       /*!< Set to 1 if different SysTick Config is used  */
 #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+
+
 
 /**
   * @}
@@ -176,6 +178,9 @@ typedef enum
   HASH_RNG_IRQn               = 80,     /*!< Hash and RNG global interrupt                                     */
   FPU_IRQn                    = 81      /*!< FPU global interrupt                                              */
 } IRQn_Type;
+
+
+#define __NVIC_PRIO_BITS          4U       /*!< STM32F4XX uses 4 Bits for the Priority Levels */
 
 /**
   * @}

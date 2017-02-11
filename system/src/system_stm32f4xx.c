@@ -64,7 +64,7 @@
   */
 
 
-#include "stm32f4xx.h"
+#include "stm32f407xx.h"
 
 #if !defined  (HSE_VALUE) 
   #define HSE_VALUE    ((uint32_t)25000000) /*!< Default value of the External oscillator in Hz */
@@ -174,6 +174,9 @@ void SystemInit(void)
   /* Reset the RCC clock configuration to the default reset state ------------*/
   /* Set HSION bit */
   RCC->CR |= (uint32_t)0x00000001;
+
+
+
 
   /* Reset CFGR register */
   RCC->CFGR = 0x00000000;

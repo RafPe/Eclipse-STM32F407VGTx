@@ -8,18 +8,26 @@
 #include "stm32f407xx.h"
 
 
+
+
 int main(void)
 {
 	volatile uint32_t delay;
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN; // enable the clock to GPIOD & GPIOA
 
-	__DSB();
-// I was enabling user input1
-	GPIOD->MODER = (1 << 26); // set pin 13 to be general purpose output
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN | RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIOAEN;	// enable the clock to GPIOD & GPIOC
+	RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN | RCC_APB2ENR_TIM1EN;  // enable SYSCFG for external interrupts & TIM1
+
+	__DSB();								// Data Synchronization Barrier
+
+	GPIOA->MODER |= (1 << 1);
+
+	GPIOA->BSRR = GPIO_BSRR_BS_0;
 
 	while (1)
 	{
-		GPIOD->ODR ^= (1 << 13);
-		for (delay = 1000000; delay; delay--) {}
-	}
-}
+
+	} /* while */
+
+
+} /* main */
+
